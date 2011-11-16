@@ -25,12 +25,13 @@ class Boxnet
   def self.get_account_tree(auth_token, folder_id, options={})
     params = []
     params << "onelevel" if options[:onelevel]
+    params << "nozip" if options[:nozip]
     
     if params.empty?
       get(@@URL + "?api_key=#{@@API_KEY}&action=get_account_tree&auth_token=#{auth_token}&folder_id=#{folder_id}")
     else
       params_string = params.join(",")
-      get(@@URL + "?api_key=#{@@API_KEY}&action=get_account_tree&auth_token=#{auth_token}&folder_id=#{folder_id}&params=#{params_string}")
+      get(@@URL + "?api_key=#{@@API_KEY}&action=get_account_tree&auth_token=#{auth_token}&folder_id=#{folder_id}&params[]=#{params_string}")
     end
   end
 
