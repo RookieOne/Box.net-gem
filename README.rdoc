@@ -1,0 +1,13 @@
+= Box .Net
+
+This is a simple gem that uses the Box.net REST Api.
+
+	gem install boxnet
+
+== Get API Key
+  
+Create an application and get an API Key. For more information check out Box.net's helpful guide http://developers.box.net/w/page/12923956/ApiOverview
+	
+== Get Ticket
+
+  Boxnet.get_ticket
