@@ -47,4 +47,28 @@ describe Boxnet do
     end    
   end
 
+  describe "get account tree" do
+    context "entire tree from root" do
+      before(:each) do
+        ticket = ENV["BOXNET_TICKET"]
+        auth_token = ENV["BOXNET_AUTHTOKEN"]
+        @result = Boxnet.get_account_tree(auth_token, "0")
+      end
+      it { @result.should_not be_nil }
+      it { @result["response"]["status"].should == "listing_ok" }
+      it { @result["response"]["tree"].should_not be_nil }
+    end    
+    
+    context "get first level from root" do
+      before(:each) do
+        ticket = ENV["BOXNET_TICKET"]
+        auth_token = ENV["BOXNET_AUTHTOKEN"]
+        @result = Boxnet.get_account_tree(auth_token, "0", :onelevel => true)
+      end
+      it { @result.should_not be_nil }
+      it { @result["response"]["status"].should == "listing_ok" }
+      it { @result["response"]["tree"].should_not be_nil }
+    end    
+  end
+  
 end
