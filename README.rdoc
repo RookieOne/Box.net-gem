@@ -11,3 +11,5 @@ Create an application and get an API Key. For more information check out Box.net
 == Get Ticket
 
   Boxnet.get_ticket
+  
+  
