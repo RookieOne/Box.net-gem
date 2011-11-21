@@ -5,6 +5,7 @@ require 'file_node'
 require 'file_tree'
 require 'folder'
 require 'file'
+require 'ticket'
 
 module Boxnet
   class Client
@@ -17,7 +18,8 @@ module Boxnet
     end
   
     def self.get_ticket
-      get(@@URL + "?api_key=#{@@API_KEY}&action=get_ticket")
+      data = get(@@URL + "?api_key=#{@@API_KEY}&action=get_ticket")
+      Ticket.new(data)
     end
   
     def self.get_auth_url_for_ticket(ticket)

@@ -4,7 +4,9 @@ module Boxnet
     
     def initialize(raw_result)
       @raw_result = raw_result
-      @file_tree = Boxnet::FileTree.new(raw_result)
+      unless status == "Wrong input"
+        @file_tree = Boxnet::FileTree.new(raw_result)
+      end
     end
     
     def status

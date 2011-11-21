@@ -8,7 +8,7 @@ describe Boxnet do
   describe "get ticket" do
     context "no API key" do
       before(:each) do
-        Boxnet.API_KEY = ""
+        Boxnet::Client.API_KEY = ""
         @result = Boxnet::Client.get_ticket
       end
       it { @result.should_not be_nil }
@@ -17,7 +17,7 @@ describe Boxnet do
       
     context "invalid API key" do
       before(:each) do
-        Boxnet.API_KEY = "bad_api_key"
+        Boxnet::Client.API_KEY = "bad_api_key"
         @result = Boxnet::Client.get_ticket
       end
       it { @result.should_not be_nil }
@@ -27,6 +27,8 @@ describe Boxnet do
     context "valid API key" do
       before(:each) do
         @result = Boxnet::Client.get_ticket
+        puts "ticket"
+        puts @result.inspect
       end
       it { @result.should_not be_nil }
       it { @result["response"]["status"].should == "get_ticket_ok" }
