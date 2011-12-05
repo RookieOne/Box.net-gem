@@ -4,7 +4,7 @@ require "boxnet/version"
 
 Gem::Specification.new do |s|
   s.name        = "boxnet"
-  s.version     = Boxnet::VERSION
+  s.version     = BoxnetApi::VERSION
   s.authors     = ["Jonathan Birkholz"]
   s.email       = ["rookieone@gmail.com"]
   s.homepage    = ""
