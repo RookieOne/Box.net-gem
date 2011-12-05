@@ -1,4 +1,4 @@
-module Boxnet
+module BoxnetApi
   class FileTree < FileNode
   
     def initialize(raw_result)

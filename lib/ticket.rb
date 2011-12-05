@@ -1,4 +1,4 @@
-module Boxnet
+module BoxnetApi
   class Ticket
     attr :ticket, :status
     

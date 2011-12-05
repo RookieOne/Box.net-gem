@@ -1,4 +1,4 @@
-module Boxnet
+module BoxnetApi
   class File < FileNode
     attr :id, :name, :description, :file_count, :sha1, :size
     attr :tags, :shared, :created, :updated, :user_id, :shared_link

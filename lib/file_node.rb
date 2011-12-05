@@ -1,4 +1,4 @@
-module Boxnet
+module BoxnetApi
   class FileNode
     attr :files, :folders
     
@@ -9,16 +9,16 @@ module Boxnet
       
       if data.has_key?("folder")
         puts "1" if data["folder"].nil?
-        self.folders << Boxnet::Folder.new(data["folder"])
+        self.folders << BoxnetApi::Folder.new(data["folder"])
       elsif data.has_key?("folders")
         folder = data["folders"]["folder"]
         
         if folder.class == Array
           folder.each do |f|
-            self.folders << Boxnet::Folder.new(f)
+            self.folders << BoxnetApi::Folder.new(f)
           end
         elsif folder.class == Hash
-          self.folders << Boxnet::Folder.new(folder)
+          self.folders << BoxnetApi::Folder.new(folder)
         end
       end
       
@@ -27,10 +27,10 @@ module Boxnet
         
         if file.class == Array
           file.each do |f|
-            self.files << Boxnet::File.new(f)
+            self.files << BoxnetApi::File.new(f)
           end
         elsif file.class == Hash
-          self.files << Boxnet::File.new(file)
+          self.files << BoxnetApi::File.new(file)
         end
       end
     end

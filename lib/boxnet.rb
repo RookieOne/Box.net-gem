@@ -7,7 +7,7 @@ require 'folder'
 require 'file'
 require 'ticket'
 
-module Boxnet
+module BoxnetApi
   class Client
     include HTTParty
     @@API_KEY = nil
