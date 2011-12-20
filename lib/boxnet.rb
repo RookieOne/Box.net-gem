@@ -36,6 +36,7 @@ module BoxnetApi
         raw_result = get(@@URL + "?api_key=#{@@API_KEY}&action=get_account_tree&auth_token=#{auth_token}&folder_id=#{folder_id}&params[]=#{params_string}")
       end
 
+      puts raw_result
       Result.new(raw_result)
     end
   end
@@ -47,7 +48,7 @@ module BoxnetApi
       # return data.nil?
       @files = []
       @folders = []      
-      
+
       if data.has_key?("folder")
         puts "1" if data["folder"].nil?
         self.folders << BoxnetApi::Folder.new(data["folder"])
@@ -134,7 +135,7 @@ module BoxnetApi
     
     def initialize(raw_result)
       @raw_result = raw_result
-      unless status == "Wrong input"
+      unless status == "Wrong input" || status == "not_logged_in"
         @file_tree = BoxnetApi::FileTree.new(raw_result)
       end
     end
